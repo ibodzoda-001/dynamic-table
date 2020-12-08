@@ -46,4 +46,6 @@ export class AppComponent {
         "My name is Joe Black, I am 32 years old, living in Sidney No. 1 Lake Park.",
     },
   ];
+
+  headers: string[] = Object.keys(this.listOfData[0]);
 }
