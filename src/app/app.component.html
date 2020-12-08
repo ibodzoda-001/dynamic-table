@@ -2,9 +2,11 @@
   <thead>
     <tr>
       <th nzWidth="60px"></th>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Address</th>
+      <th
+        *ngFor="let header of headers | filter_headers: 'name':'age':'address'"
+      >
+        {{ header }}
+      </th>
     </tr>
   </thead>
   <tbody>
