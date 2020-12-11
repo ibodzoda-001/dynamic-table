@@ -1,28 +1,12 @@
-<nz-table #nzTable [nzData]="listOfData" nzTableLayout="fixed">
+<nz-table #basicTable nzBordered [nzData]="listOfData">
   <thead>
-    <tr>
-      <th nzWidth="60px"></th>
-      <th
-        *ngFor="let header of headers | filter_headers: 'name':'age':'address'"
-      >
-        {{ header }}
-      </th>
-    </tr>
+  <tr>
+    <th *ngFor="let header of headers">{{header.title}}</th>
+  </tr>
   </thead>
   <tbody>
-    <ng-container *ngFor="let data of nzTable.data">
-      <tr>
-        <td
-          [nzExpand]="expandSet.has(data.id)"
-          (nzExpandChange)="onExpandChange(data.id, $event)"
-        ></td>
-        <td>{{ data.name }}</td>
-        <td>{{ data.age }}</td>
-        <td>{{ data.address }}</td>
-      </tr>
-      <tr [nzExpand]="expandSet.has(data.id)">
-        <span>{{ data.description }}</span>
-      </tr>
-    </ng-container>
+  <tr *ngFor="let data of basicTable.data">
+    <td *ngFor="let header of headers">{{data[header.key]}}</td>
+  </tr>
   </tbody>
 </nz-table>
